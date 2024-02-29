@@ -8,12 +8,12 @@ var rollbar = new Rollbar({
   accessToken: 'c6275ba384554fae9e7482d353f72136',
   captureUncaught: true,
   captureUnhandledRejections: true,
-})
+});
 
 
 app.use(express.static(`${__dirname}/public`));
 
-rollbar.log('Hello world!')
+rollbar.log('Hello world!');
 
 app.use(cors());
 
@@ -21,7 +21,7 @@ app.use(express.json());
 
 const { getCompliment, getFortune, addFortune, deleteFortune, changeFortune, getAllFortunes} = require('./controller.js')
 
-app.get("/api/doesntexist", rollbar.error("Catch these hands"))
+app.get("/api/doesntexist", (req, res) => {rollbar.error("Catch these hands")})
 
 
 app.get("/api/compliment", getCompliment);
