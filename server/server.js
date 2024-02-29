@@ -21,6 +21,9 @@ app.use(express.json());
 
 const { getCompliment, getFortune, addFortune, deleteFortune, changeFortune, getAllFortunes} = require('./controller.js')
 
+app.get("/api/doesntexist", rollbar.error("Catch these hands"))
+
+
 app.get("/api/compliment", getCompliment);
 app.get(`/api/fortunes`, getFortune)
 app.post(`/api/fortunes`, addFortune)
