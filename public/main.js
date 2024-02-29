@@ -36,7 +36,7 @@ const addNewFortune = (e) => {
 const body = {
     newFortune: fortuneInput.value,
 }
-    axios.post(`http://localhost:4000/api/fortunes`, body)
+    axios.post(`/api/fortunes`, body)
     .then(res => {
         console.log(res.data)
         alert(`Your new fortune, ${fortuneInput.value}, has been added!`)
@@ -50,7 +50,7 @@ const deleteFortuneById = (e) => {
 
     const idInput = +fortuneId.value
 
-    axios.delete(`http://localhost:4000/api/fortunes/${idInput}`)
+    axios.delete(`/api/fortunes/${idInput}`)
     .then(res => {
         alert(`You deleted the fortune with the index of: ${idInput}`)
     })
@@ -65,7 +65,7 @@ const changeFortuneById = (e) => {
         newFortune: fortuneText.value
     }
 
-    axios.put(`http://localhost:4000/api/fortunes/${idInput}`, body)
+    axios.put(`/api/fortunes/${idInput}`, body)
     .then(res => {
         alert(`You have changed the fortune with the id of ${idInput}`)
     })
@@ -73,7 +73,7 @@ const changeFortuneById = (e) => {
 
 changeFortuneBtn.addEventListener(`click`, changeFortuneById)
 
-const fortuneCallback = ({data: fortune}) 
-const getAllFortunes = e => axios.get(`http://localhost:4000/api/fortune`).then(fortuneCallback)
+// const fortuneCallback = ({data: fortune}) 
+// const getAllFortunes = e => axios.get(`/api/fortune`).then(fortuneCallback)
 
-getFortunesBtn.addEventListener(`click`, getAllFortunes)
+// getFortunesBtn.addEventListener(`click`, getAllFortunes)
