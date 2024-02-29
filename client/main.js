@@ -7,6 +7,7 @@ const deleteFortuneBtn = document.getElementById(`deleteFortune`)
 const changeFortuneInput = document.getElementById(`changeFortune`)
 const changeFortuneBtn = document.getElementById(`changeFortuneBtn`)
 const fortuneText = document.getElementById(`fortuneText`)
+const getFortunesBtn = document.getElementById(`getFortunes`)
 
 const getCompliment = () => {
     axios.get("http://localhost:4000/api/compliment/")
@@ -71,3 +72,8 @@ const changeFortuneById = (e) => {
 }
 
 changeFortuneBtn.addEventListener(`click`, changeFortuneById)
+
+const fortuneCallback = ({data: fortune}) 
+const getAllFortunes = e => axios.get(`http://localhost:4000/api/fortune`).then(fortuneCallback)
+
+getFortunesBtn.addEventListener(`click`, getAllFortunes)

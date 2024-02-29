@@ -14,6 +14,8 @@ const fortunes = [
 ];
 globalId = 6
 
+
+
 module.exports = {
   getCompliment: (req, res) => {
     const compliments = [
@@ -68,6 +70,10 @@ module.exports = {
     } else {
         return res.status(400).send(req.body.newFortune)
     }
+  },
+  getAllFortunes: (req, res) => {
+    const fortune = fortunes
+    res.status(200).send(fortune)
   }
 };
 // `This is also not working!`
