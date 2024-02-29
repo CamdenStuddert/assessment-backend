@@ -11,7 +11,7 @@ var rollbar = new Rollbar({
 });
 
 
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`${__dirname}/../public`));
 
 rollbar.log('Hello world!');
 
