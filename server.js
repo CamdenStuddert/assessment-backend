@@ -3,7 +3,17 @@ const cors = require("cors");
 
 const app = express();
 
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+  accessToken: 'c6275ba384554fae9e7482d353f72136',
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+})
+
+
 app.use(express.static(`${__dirname}/public`));
+
+rollbar.log('Hello world!')
 
 app.use(cors());
 
